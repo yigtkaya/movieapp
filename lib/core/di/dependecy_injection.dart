@@ -2,6 +2,8 @@ import 'package:get_it/get_it.dart';
 import 'package:movieapp/core/cache/hive/hive_manager.dart';
 import 'package:movieapp/core/cache/product_cache.dart';
 import 'package:movieapp/core/network/api_client.dart';
+import 'package:movieapp/features/movie_search/data/repositories/movie_repository_impl.dart';
+import 'package:movieapp/features/movie_search/domain/repositories/movie_repository.dart';
 import 'package:movieapp/localization/cubit/language_cubit.dart';
 
 /// Dependency injection class.
@@ -18,68 +20,8 @@ final class DependencyInjection {
       ),
     );
 
-    navigationSetup();
-    authSetup();
     languageSetup();
     networkSetup();
-    newsSetup();
-    bookmarksSetup();
-  }
-
-  static void bookmarksSetup() {
-    _getIt
-      ..registerLazySingleton<BookmarksRepository>(
-        BookmarksRepositoryImpl.new,
-      )
-      ..registerLazySingleton(() => GetBookmarkedNewsUsecase(_getIt()))
-      ..registerLazySingleton(() => ClearBookmarksUsecase(_getIt()))
-      ..registerLazySingleton(() => RemoveBookmarkUsecase(_getIt()))
-      ..registerLazySingleton(() => AddBookmarkUsecase(_getIt()))
-      ..registerLazySingleton(
-        () => BookmarksCubit(
-          _getIt(),
-          _getIt(),
-          _getIt(),
-          _getIt(),
-        ),
-      );
-  }
-
-  static void navigationSetup() {
-    _getIt.registerLazySingleton(
-      BottomNavigationCubit.new,
-    );
-  }
-
-  /// Setup the authentication dependency injection.
-  static void authSetup() {
-    // Register Firebase Auth instance
-    _getIt
-      ..registerLazySingleton(() => FirebaseAuth.instance)
-
-      // Register Repository
-      ..registerLazySingleton<AuthRepository>(
-        () => AuthRepositoryImpl(_getIt()),
-      )
-
-      // Register Use Cases
-      ..registerLazySingleton(() => SignInUsecase(_getIt()))
-      ..registerLazySingleton(() => SignUpUsecase(_getIt()))
-      ..registerLazySingleton(() => SignOutUsecase(_getIt()))
-      ..registerLazySingleton(() => GetCurrentUserUsecase(_getIt()))
-      ..registerLazySingleton(() => ListenAuthStateUsecase(_getIt()))
-      ..registerLazySingleton(() => ForgotPasswordUsecase(_getIt()))
-      // Register Cubit
-      ..registerLazySingleton(
-        () => AuthCubit(
-          _getIt(), // SignInUsecase
-          _getIt(), // SignUpUsecase
-          _getIt(), // SignOutUsecase
-          _getIt(), // GetCurrentUserUsecase
-          _getIt(), // ListenAuthStateUsecase
-          _getIt(), // ForgotPasswordUsecase
-        ),
-      );
   }
 
   /// Setup the language dependency injection.
@@ -89,11 +31,12 @@ final class DependencyInjection {
 
   /// Setup the network dependency injection.
   static void networkSetup() {
-    final dioClient = ApiClient();
+    final apiClient = ApiClient();
 
     _getIt
-      ..registerLazySingleton<NewsApiClient>(
-        () => NewsApiClient(dioClient.dio),
+      ..registerLazySingleton(() => apiClient)
+      ..registerLazySingleton<MovieRepository>(
+        () => MovieRepositoryImpl(_getIt()),
       );
   }
 

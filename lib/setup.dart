@@ -35,10 +35,19 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
       stackTrace: stack,
       name: AppConstants.initFunctionName,
     );
-    FirebaseCrashlytics.instance.recordError(
-      error,
-      stack,
-    );
+    // FirebaseCrashlytics.instance.recordError(
+    //   error,
+    //   stack,
+    // );
     Sentry.captureException(error, stackTrace: stack);
   });
 }
+/// Configure the firebase services
+// Future<void> firebaseConfig() async {
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+//   );
+//   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+//   await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+//   await FirebaseAnalytics.instance.logAppOpen();
+// }

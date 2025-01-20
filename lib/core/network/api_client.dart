@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:movieapp/core/config/app_environment.dart';
+import 'package:movieapp/core/environment/app_environment.dart';
+import 'package:movieapp/core/network/network_mixin.dart';
 
 @immutable
-class ApiClient {
+class ApiClient with NetworkMixin {
   ApiClient() {
     _dio = Dio(
       BaseOptions(
@@ -20,7 +21,7 @@ class ApiClient {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          options.queryParameters['api_key'] = AppEnvironment.apiKey;
+          options.queryParameters['api_key'] = AppEnvironment.newsApiKey;
           return handler.next(options);
         },
         onError: (error, handler) {
@@ -32,6 +33,8 @@ class ApiClient {
 
   late final Dio _dio;
 
+  Dio get dio => _dio;
+
   Future<Response<T>> get<T>(
     String path, {
     Map<String, dynamic>? queryParameters,
@@ -39,17 +42,12 @@ class ApiClient {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
   }) async {
-    try {
-      final response = await _dio.get<T>(
-        path,
-        queryParameters: queryParameters,
-        options: options,
-        cancelToken: cancelToken,
-        onReceiveProgress: onReceiveProgress,
-      );
-      return response;
-    } catch (e) {
-      rethrow;
-    }
+    return networkRequest(() => _dio.get<T>(
+          path,
+          queryParameters: queryParameters,
+          options: options,
+          cancelToken: cancelToken,
+          onReceiveProgress: onReceiveProgress,
+        ));
   }
 }
