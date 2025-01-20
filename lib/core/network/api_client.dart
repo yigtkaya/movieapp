@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:movieapp/core/config/app_environment.dart';
 
+@immutable
 class ApiClient {
   ApiClient() {
     _dio = Dio(

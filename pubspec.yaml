@@ -42,6 +42,9 @@ dependencies:
   # JSON SERIALIZATION
   dart_mappable: ^4.3.0
 
+  # ANALYTICS
+  sentry_flutter: ^8.12.0
+
   # HIVE (LOCAL STORAGE)
   hive: ^4.0.0-dev.2
   isar_flutter_libs: ^4.0.0-dev.13
