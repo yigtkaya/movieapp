@@ -7,8 +7,8 @@ import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_s
 import 'package:movieapp/features/movie_search/presentation/widgets/movie_grid.dart';
 
 @RoutePage()
-final class MovieSearchPage extends StatelessWidget {
-  const MovieSearchPage({super.key});
+final class MovieSearchView extends StatelessWidget {
+  const MovieSearchView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +36,22 @@ final class MovieSearchPage extends StatelessWidget {
               Expanded(
                 child: BlocBuilder<MovieSearchCubit, MovieSearchState>(
                   builder: (context, state) {
-                    return state.when(
-                      initial: () => const Center(
-                        child: Text('Search for movies'),
-                      ),
-                      loading: () => const Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                      loaded: (movies) => MovieGrid(movies: movies),
-                      error: (message) => Center(
-                        child: Text(message),
-                      ),
-                    );
+                    switch (state.status) {
+                      case MovieSearchStatus.initial:
+                        return const Center(
+                          child: Text('Search for movies'),
+                        );
+                      case MovieSearchStatus.loading:
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      case MovieSearchStatus.loaded:
+                        return MovieGrid(movies: state.movies);
+                      case MovieSearchStatus.error:
+                        return Center(
+                          child: Text(state.errorMessage ?? 'An error occurred'),
+                        );
+                    }
                   },
                 ),
               ),

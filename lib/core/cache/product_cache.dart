@@ -1,5 +1,6 @@
 import 'package:movieapp/core/cache/core/cache_manager.dart';
 import 'package:movieapp/core/cache/hive/hive_operation.dart';
+import 'package:movieapp/features/movie_search/domain/entities/movie.dart';
 
 /// ProductCache is a class that manages the cache for the app.
 final class ProductCache {
@@ -14,11 +15,11 @@ final class ProductCache {
   Future<void> init() async {
     await _cacheManager.init(
       cacheModels: [
-        MovieEntity.empty(),
+        Movie.empty(),
       ],
     );
   }
 
   /// User cache operation.
-  late final userCacheOperation = HiveCacheOperation<MoviewEntity>();
+  late final userCacheOperation = HiveCacheOperation<Movie>();
 }

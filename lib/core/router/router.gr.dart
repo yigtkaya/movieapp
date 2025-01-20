@@ -10,20 +10,20 @@
 part of 'router.dart';
 
 /// generated route for
-/// [MovieSearchPage]
-class MovieSearchPage extends PageRouteInfo<void> {
-  const MovieSearchPage({List<PageRouteInfo>? children})
+/// [MovieSearchView]
+class MovieSearchRoute extends PageRouteInfo<void> {
+  const MovieSearchRoute({List<PageRouteInfo>? children})
       : super(
-          MovieSearchPage.name,
+          MovieSearchRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'MovieSearchPage';
+  static const String name = 'MovieSearchRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const MovieSearchPage();
+      return const MovieSearchView();
     },
   );
 }
