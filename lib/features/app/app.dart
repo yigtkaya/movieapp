@@ -1,4 +1,4 @@
-part of 'main.dart';
+part of '../../main.dart';
 
 /// App widget.
 final class App extends StatelessWidget {

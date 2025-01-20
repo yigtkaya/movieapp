@@ -19,9 +19,9 @@ import 'package:movieapp/localization/app_localizations.dart';
 import 'package:movieapp/localization/cubit/language_cubit.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
-part 'initializer.dart';
-part 'app.dart';
-part 'setup.dart';
+part 'features/app/initializer.dart';
+part 'features/app/app.dart';
+part 'features/app/setup.dart';
 
 void main() {
   setup(

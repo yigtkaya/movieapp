@@ -1,4 +1,4 @@
-part of 'main.dart';
+part of '../../main.dart';
 
 final class Initializer extends StatelessWidget {
   const Initializer({

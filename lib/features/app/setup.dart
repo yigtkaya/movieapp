@@ -1,4 +1,4 @@
-part of 'main.dart';
+part of '../../main.dart';
 
 Future<void> setup(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(() async {

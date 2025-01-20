@@ -10,6 +10,8 @@ A Flutter application that allows users to search for movies using The Movie Dat
 - Grid view display of movie results
 - Movie poster and title display
 - Input validation for search queries
+- Multiple environment support (Development, Staging, Production)
+- Flavor-based build configuration
 
 ## Technical Specifications
 
@@ -25,6 +27,7 @@ A Flutter application that allows users to search for movies using The Movie Dat
 
 - Clean Architecture with BLoC pattern
 - Feature-based project structure
+- Environment-specific configurations
 
 ### Dependencies
 
@@ -34,6 +37,7 @@ A Flutter application that allows users to search for movies using The Movie Dat
 - auto_route: Navigation
 - get_it: Dependency injection
 - freezed: Data class generation
+- very_good_analysis: Strict linting rules
 
 ### Project Structure
 
@@ -48,8 +52,24 @@ lib/
 │       ├── data/
 │       ├── domain/
 │       └── presentation/
-└── main.dart
+├── initializer.dart
+├── main.dart
+├── main_dev.dart
+├── main_prod.dart
+└── main_stg.dart
 ```
+
+### Environment Configuration
+
+#### iOS
+
+- Debug and Release configurations for dev, staging, and production
+- Separate xcconfig files for each environment
+
+#### Android
+
+- Flavor-based build variants
+- Environment-specific configurations in build.gradle
 
 ### UI Components
 
@@ -74,6 +94,7 @@ lib/
 - Keep UI files under 150 lines
 - Implement proper state management
 - Use proper naming conventions
+- Follow very_good_analysis linting rules
 
 ## Testing
 
@@ -86,3 +107,4 @@ lib/
 - Image caching
 - Pagination for search results
 - Debouncing search queries
+- Environment-specific optimizations

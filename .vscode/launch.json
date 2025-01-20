@@ -2,25 +2,25 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Development",
+      "name": "Launch development",
       "request": "launch",
       "type": "dart",
-      "program": "lib/main_dev.dart",
-      "args": ["--flavor", "dev", "--dart-define=API_KEY=your_api_key_here"]
+      "program": "lib/main_development.dart",
+      "args": ["--flavor", "development", "--target", "lib/main_dev.dart"]
     },
     {
-      "name": "Staging",
+      "name": "Launch staging",
       "request": "launch",
       "type": "dart",
       "program": "lib/main_stg.dart",
-      "args": ["--flavor", "stg", "--dart-define=API_KEY=your_api_key_here"]
+      "args": ["--flavor", "staging", "--target", "lib/main_staging.dart"]
     },
     {
-      "name": "Production",
+      "name": "Launch production",
       "request": "launch",
       "type": "dart",
       "program": "lib/main_prod.dart",
-      "args": ["--flavor", "prod", "--dart-define=API_KEY=your_api_key_here"]
+      "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
     }
   ]
 }
