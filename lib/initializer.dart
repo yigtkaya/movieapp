@@ -1,7 +1,10 @@
 part of 'main.dart';
 
-final class _Initializer extends StatelessWidget {
-  const _Initializer({required this.child});
+final class Initializer extends StatelessWidget {
+  const Initializer({
+    required this.child,
+    super.key,
+  });
   final Widget child;
 
   @override

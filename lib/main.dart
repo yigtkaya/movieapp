@@ -25,7 +25,7 @@ part 'setup.dart';
 
 void main() {
   setup(
-    () => _Initializer(
+    () => Initializer(
       child: App(),
     ),
   );
