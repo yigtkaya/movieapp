@@ -1,7 +1,7 @@
 import 'package:envied/envied.dart';
 import 'package:movieapp/core/environment/app_configuration.dart';
 
-part 'envied.g.dart';
+part 'dev_envied.g.dart';
 
 /// The development environment
 @Envied(path: '.env', obfuscate: true)
@@ -19,4 +19,7 @@ final class DevEnv implements AppConfiguration {
 
   @override
   String get baseUrl => _baseUrl;
+
+  @override
+  String get environment => 'development';
 }

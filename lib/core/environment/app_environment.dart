@@ -14,4 +14,7 @@ final class AppEnvironment {
 
   /// The base url
   static String get baseUrl => _configuration.baseUrl;
+
+  /// The environment
+  static String get environment => _configuration.environment;
 }

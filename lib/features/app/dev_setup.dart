@@ -42,12 +42,17 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
     Sentry.captureException(error, stackTrace: stack);
   });
 }
-/// Configure the firebase services
-// Future<void> firebaseConfig() async {
-//   await Firebase.initializeApp(
-//     options: DefaultFirebaseOptions.currentPlatform,
-//   );
-//   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-//   await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
-//   await FirebaseAnalytics.instance.logAppOpen();
-// }
+
+// Configure the firebase services
+Future<void> firebaseConfigDev() async {
+  final environment = AppEnvironment.environment;
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+    name: environment,
+  );
+
+  await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+  await FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
+  await FirebaseAnalytics.instance.logAppOpen();
+}

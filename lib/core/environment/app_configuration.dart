@@ -5,4 +5,7 @@ abstract interface class AppConfiguration {
 
   /// The base url
   String get baseUrl;
+
+  /// The Environment
+  String get environment;
 }

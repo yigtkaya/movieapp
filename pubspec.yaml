@@ -24,6 +24,11 @@ dependencies:
   # LINT
   very_good_analysis: ^7.0.0
 
+  # FIREBASE
+  firebase_core: ^3.10.0
+  firebase_analytics: ^11.4.0
+  firebase_crashlytics: ^4.3.0
+
   # NETWORK
   dio: ^5.7.0
   retrofit: ^4.4.2

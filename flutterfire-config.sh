@@ -10,11 +10,11 @@ fi
 case $1 in
   dev)
     flutterfire config \
-      --project=fenixmovie \
+      --project=fenximovie \
       --out=lib/firebase_options_dev.dart \
       --ios-bundle-id=com.fenix.movieapp.dev \
       --ios-out=ios/config/dev/GoogleService-Info.plist \
-      --android-package-name=com.borusan.kerimcelik.dev \
+      --android-package-name=com.fenix.movieapp.dev \
       --android-out=android/app/src/dev/google-services.json
     ;;
   stg)

@@ -1,7 +1,7 @@
 import 'package:movieapp/main.dart';
 
 void main() {
-  setup(
+  setupProd(
     () => Initializer(
       child: App(),
     ),
