@@ -17,7 +17,7 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
     await SentryFlutter.init(
       (options) {
         options
-          ..dsn = 'https://0c8be15798367891bb7f9e8b49d6a83b@o4508661105098752.ingest.de.sentry.io/4508661108899920'
+          ..dsn = 'https://ada5484ff7744e84772669b3c485323c@o4508661105098752.ingest.de.sentry.io/4508676529258576'
           // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing.
           // We recommend adjusting this value in production.
           ..tracesSampleRate = 1.0

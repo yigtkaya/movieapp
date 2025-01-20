@@ -10,7 +10,7 @@ class ApiClient with NetworkMixin {
       BaseOptions(
         baseUrl: AppEnvironment.baseUrl,
         connectTimeout: const Duration(seconds: 5),
-        receiveTimeout: const Duration(seconds: 3),
+        receiveTimeout: const Duration(seconds: 5),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -42,12 +42,14 @@ class ApiClient with NetworkMixin {
     CancelToken? cancelToken,
     ProgressCallback? onReceiveProgress,
   }) async {
-    return networkRequest(() => _dio.get<T>(
-          path,
-          queryParameters: queryParameters,
-          options: options,
-          cancelToken: cancelToken,
-          onReceiveProgress: onReceiveProgress,
-        ));
+    return networkRequest(
+      () => _dio.get<T>(
+        path,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken,
+        onReceiveProgress: onReceiveProgress,
+      ),
+    );
   }
 }

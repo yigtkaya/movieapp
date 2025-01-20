@@ -4,6 +4,8 @@ import 'package:movieapp/core/cache/product_cache.dart';
 import 'package:movieapp/core/network/api_client.dart';
 import 'package:movieapp/features/movie_search/data/repositories/movie_repository_impl.dart';
 import 'package:movieapp/features/movie_search/domain/repositories/movie_repository.dart';
+import 'package:movieapp/features/movie_search/domain/usecases/search_movies.dart';
+import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_cubit.dart';
 import 'package:movieapp/localization/cubit/language_cubit.dart';
 
 /// Dependency injection class.
@@ -37,6 +39,12 @@ final class DependencyInjection {
       ..registerLazySingleton(() => apiClient)
       ..registerLazySingleton<MovieRepository>(
         () => MovieRepositoryImpl(_getIt()),
+      )
+      ..registerLazySingleton(
+        () => SearchMovies(_getIt()),
+      )
+      ..registerLazySingleton<MovieSearchCubit>(
+        () => MovieSearchCubit(_getIt()),
       );
   }
 
