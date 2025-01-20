@@ -1,0 +1,97 @@
+
+## Flutter Guidlines
+
+- Key Principles
+    - Write concise, technical Dart code with accurate examples.
+    - Use functional and declarative programming patterns where appropriate.
+    - Prefer inheritance.
+    - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+    - Use arrow syntax for simple functions and methods.
+    - Use trailing commas for better formatting and diffs.
+    - Implement responsive design using LayoutBuilder or MediaQuery.
+
+
+- Architecture and State Management
+    - pattern: BLoC with Clean Architecture
+    - state management: 
+        - Bloc-Specific Guidelines:
+            - Use Cubit for managing simple state and Bloc for complex event-driven state management.
+            - Extend states with Freezed for immutability.
+            - Use descriptive and meaningful event names for Bloc.
+            - Handle state transitions and side effects in Bloc's mapEventToState.
+            - Prefer context.read() or context.watch() for accessing Cubit/Bloc states in widgets.
+            - Use BlocBuilder for widgets that depend on Cubit/Bloc state.
+            - Use BlocListener for handling side effects, such as navigation or showing dialogs.
+
+    - routing: AutoRoute & AutoRouteGeneration
+    - dependecy injection: GetIt
+    - analytics: Firebase Analytics & Sentry
+    - theme: Flex Color Scheme 
+    - localization: Flutter Localization & Flutter Intl
+    - notifications: Firebase Cloud Messaging & Flutter Local Notifications
+
+- Project Structure
+    lib/
+        core/
+            constants/
+            enums/
+            extensions/
+            helpers/
+            services/
+            router/
+            di/
+            observers/
+            network/
+        app/
+            shared/
+                widgets/
+                utils/
+                theme/
+        features/
+            home/
+                presentation/
+                    widgets/
+                    pages/
+                domain/
+                    entities/
+                    repositories/
+                    usecases/
+                data/
+                    datasources/
+                    models/
+                    repositories/
+        localization/
+
+
+- Technical Standarts
+    - Storage:
+        - local: Hive
+        - caching: CachedNetworkImage
+    - Workflow: 
+        - very_good_analysis for linting
+        - flavor based development (dev, prod, staging)
+    - Best Practices:
+        - StateLess Widgets for UI only components and whenever possible
+        - const constructors when possible
+        - UI files under 150 lines of code
+        - Material design 3 guidelines
+        - Create small, private widget classes instead of methods like Widget _build....
+        - Implement RefreshIndicator for pull-to-refresh functionality.
+        - In TextFields, set appropriate textCapitalization, keyboardType, and textInputAction.
+    - Documentation:
+        - Reference PROJECT.md file for implementations
+        - Keep project_progress.md up to date with the latest changes
+        - Update changes_log.md with the latest changes
+    
+- Project Progress:
+    - Sections:
+        - Current Sprint
+        - Completed Features
+        - Known Bugs
+        - To Do List
+    - Update Guidelines:
+        - Update at the end of each working session
+        - update every composer assistant usage
+        - keep entries concise and dated
+        - highlight the most important changes and blocking issues
+                    
