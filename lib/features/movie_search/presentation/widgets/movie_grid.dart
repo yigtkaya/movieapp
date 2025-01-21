@@ -34,6 +34,19 @@ class MovieCard extends StatelessWidget {
 
   final Movie movie;
 
+  void _showFullScreenImage(BuildContext context) {
+    if (movie.posterPath == null) return;
+
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (context) => FullScreenImageView(
+          imageUrl: 'https://image.tmdb.org/t/p/original${movie.posterPath}',
+          heroTag: 'movie-poster-${movie.movieId}',
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -43,21 +56,27 @@ class MovieCard extends StatelessWidget {
         children: [
           if (movie.posterPath != null)
             Expanded(
-              child: CachedNetworkImage(
-                imageUrl: 'https://image.tmdb.org/t/p/w220_and_h330_face${movie.posterPath}',
-                fit: BoxFit.cover,
-                width: double.infinity,
-                placeholder: (context, url) => Shimmer.fromColors(
-                  baseColor: Theme.of(context).colorScheme.surfaceBright,
-                  highlightColor: Theme.of(context).colorScheme.surface,
-                  child: Container(
+              child: GestureDetector(
+                onTap: () => _showFullScreenImage(context),
+                child: Hero(
+                  tag: 'movie-poster-${movie.movieId}',
+                  child: CachedNetworkImage(
+                    imageUrl: 'https://image.tmdb.org/t/p/w220_and_h330_face${movie.posterPath}',
+                    fit: BoxFit.cover,
                     width: double.infinity,
-                    height: double.infinity,
-                    color: Theme.of(context).colorScheme.secondary,
+                    placeholder: (context, url) => Shimmer.fromColors(
+                      baseColor: Theme.of(context).colorScheme.surfaceBright,
+                      highlightColor: Theme.of(context).colorScheme.surface,
+                      child: Container(
+                        width: double.infinity,
+                        height: double.infinity,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => const Center(
+                      child: Icon(Icons.error),
+                    ),
                   ),
-                ),
-                errorWidget: (context, url, error) => const Center(
-                  child: Icon(Icons.error),
                 ),
               ),
             )

@@ -3,21 +3,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/core/constants/app_colors.dart';
 import 'package:movieapp/core/constants/app_design_constant.dart';
 import 'package:movieapp/core/di/dependecy_injection_items.dart';
-import 'package:movieapp/localization/cubit/language_cubit.dart';
 
 final class LanguagePickerBottomSheet extends StatelessWidget {
   const LanguagePickerBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => DepInItems.languageCubit,
+    return BlocProvider.value(
+      value: DepInItems.languageCubit,
       child: ListView.separated(
         shrinkWrap: true,
         padding: const EdgeInsets.symmetric(
           vertical: AppDesignConstants.spacingLarge,
         ),
-        itemCount: context.read<LanguageCubit>().supportedLanguages.length,
+        itemCount: DepInItems.languageCubit.supportedLanguages.length,
         separatorBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(
@@ -30,23 +29,21 @@ final class LanguagePickerBottomSheet extends StatelessWidget {
           );
         },
         itemBuilder: (context, index) {
+          final language = DepInItems.languageCubit.supportedLanguages[index];
           return ListTile(
             leading: Text(
-              context.read<LanguageCubit>().supportedLanguages[index].imagePath,
+              language.imagePath,
               style: Theme.of(context).textTheme.titleMedium,
             ),
             title: Text(
-              context.read<LanguageCubit>().supportedLanguages[index].name,
+              language.name,
               style: Theme.of(context).textTheme.bodyMedium,
             ),
-            trailing: context.read<LanguageCubit>().state.selectedLanguage ==
-                    context.read<LanguageCubit>().supportedLanguages[index]
+            trailing: DepInItems.languageCubit.state.selectedLanguage == language
                 ? Icon(Icons.check, color: AppColors.kPrimary100)
                 : null,
             onTap: () {
-              context.read<LanguageCubit>().changeLanguage(
-                    context.read<LanguageCubit>().supportedLanguages[index],
-                  );
+              DepInItems.languageCubit.changeLanguage(language);
               Navigator.of(context, rootNavigator: true).pop();
             },
           );

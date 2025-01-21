@@ -32,7 +32,7 @@ final class App extends StatelessWidget {
               GlobalCupertinoLocalizations.delegate,
             ],
             supportedLocales: AppLocalizations.supportedLocales,
-            theme: AppTheme.light,
+            theme: AppTheme.dark,
           ),
         );
       },

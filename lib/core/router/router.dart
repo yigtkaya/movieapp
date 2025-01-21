@@ -28,5 +28,9 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: MovieSearchRoute.page,
         ),
+        CustomRoute<void>(
+          page: FullScreenImageRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
       ];
 }

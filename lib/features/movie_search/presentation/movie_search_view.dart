@@ -8,12 +8,11 @@ import 'package:movieapp/features/movie_search/domain/entities/movie.dart';
 import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_cubit.dart';
 import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_state.dart';
 import 'package:movieapp/localization/l10.dart';
-import 'package:movieapp/localization/language_picker_sheet.dart';
 import 'package:shimmer/shimmer.dart';
 
-part 'mixins/movie_search_view_mixin.dart';
 part 'widgets/movie_grid.dart';
 part 'widgets/movie_search_results.dart';
+part 'widgets/full_screen_image_view.dart';
 
 @RoutePage()
 final class MovieSearchView extends BaseWidget<MovieSearchCubit, MovieSearchState> {
@@ -27,24 +26,28 @@ final class MovieSearchView extends BaseWidget<MovieSearchCubit, MovieSearchStat
         actions: [
           IconButton(
             icon: const Icon(Icons.language),
-            onPressed: () async {},
+            onPressed: () => cubit.showLanguagePicker(context),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          TextField(
-            decoration: InputDecoration(
-              hintText: l10n.searchMoviesHint,
-              prefixIcon: const Icon(Icons.search),
-              border: const OutlineInputBorder(),
+      body: Padding(
+        padding: const EdgeInsets.all(AppDesignConstants.spacingMedium),
+        child: Column(
+          spacing: AppDesignConstants.spacingMedium,
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                hintText: l10n.searchMoviesHint,
+                prefixIcon: const Icon(Icons.search),
+                border: const OutlineInputBorder(),
+              ),
+              onChanged: cubit.searchMovies,
             ),
-            onChanged: cubit.searchMovies,
-          ),
-          const Expanded(
-            child: MovieSearchResults(),
-          ),
-        ],
+            const Expanded(
+              child: MovieSearchResults(),
+            ),
+          ],
+        ),
       ),
     );
   }
