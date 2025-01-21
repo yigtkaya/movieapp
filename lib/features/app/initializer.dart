@@ -17,6 +17,9 @@ final class Initializer extends StatelessWidget {
         BlocProvider<MovieSearchCubit>(
           create: (context) => DepInItems.movieSearchCubit,
         ),
+        BlocProvider<ThemeCubit>(
+          create: (context) => DepInItems.themeCubit,
+        ),
       ],
       child: child,
     );

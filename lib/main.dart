@@ -18,6 +18,8 @@ import 'package:movieapp/core/environment/prod_envied.dart';
 import 'package:movieapp/core/firebase/firebase_options_dev.dart';
 import 'package:movieapp/core/observers/custom_route_observer.dart';
 import 'package:movieapp/core/router/router.dart';
+import 'package:movieapp/core/theme/cubit/theme_cubit.dart';
+import 'package:movieapp/core/theme/cubit/theme_state.dart';
 import 'package:movieapp/core/theme/theme.dart';
 import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_cubit.dart';
 import 'package:movieapp/localization/app_localizations.dart';

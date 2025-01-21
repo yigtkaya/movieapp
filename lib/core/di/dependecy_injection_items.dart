@@ -1,6 +1,7 @@
 import 'package:movieapp/core/cache/product_cache.dart';
 import 'package:movieapp/core/di/dependecy_injection.dart';
 import 'package:movieapp/core/network/api_client.dart';
+import 'package:movieapp/core/theme/cubit/theme_cubit.dart';
 import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_cubit.dart';
 import 'package:movieapp/localization/cubit/language_cubit.dart';
 
@@ -13,6 +14,9 @@ final class DepInItems {
 
   /// Get the language cubit.
   static LanguageCubit get languageCubit => DependencyInjection.read<LanguageCubit>();
+
+  /// Get the theme cubit.
+  static ThemeCubit get themeCubit => DependencyInjection.read<ThemeCubit>();
 
   /// Get the movie search cubit.
   static MovieSearchCubit get movieSearchCubit => DependencyInjection.read<MovieSearchCubit>();
