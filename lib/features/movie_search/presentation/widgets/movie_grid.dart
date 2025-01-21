@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:movieapp/features/movie_search/domain/entities/movie.dart';
+part of '../movie_search_view.dart';
 
 class MovieGrid extends StatelessWidget {
   const MovieGrid({
@@ -49,8 +47,14 @@ class MovieCard extends StatelessWidget {
                 imageUrl: 'https://image.tmdb.org/t/p/w220_and_h330_face${movie.posterPath}',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                placeholder: (context, url) => const Center(
-                  child: CircularProgressIndicator(),
+                placeholder: (context, url) => Shimmer.fromColors(
+                  baseColor: Theme.of(context).colorScheme.surfaceBright,
+                  highlightColor: Theme.of(context).colorScheme.surface,
+                  child: Container(
+                    width: double.infinity,
+                    height: double.infinity,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
                 errorWidget: (context, url, error) => const Center(
                   child: Icon(Icons.error),
@@ -67,7 +71,9 @@ class MovieCard extends StatelessWidget {
               ),
             ),
           Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(
+              AppDesignConstants.borderRadiusMedium,
+            ),
             child: Text(
               movie.originalTitle,
               maxLines: 2,

@@ -51,5 +51,9 @@
   "bookmarks": "Yer İşaretleri",
   "noBookmarks": "Henüz yer işareti yok",
   "clearAll": "Temizle",
-  "general": "Genel"
+  "general": "Genel",
+  "movieSearch": "Film Ara",
+  "searchMoviesHint": "Film ara...",
+  "searchForMovies": "Aramak için film adı girin",
+  "anErrorOccurred": "Bir hata oluştu"
 }

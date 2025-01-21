@@ -51,5 +51,9 @@
   "bookmarks": "Bookmarks",
   "noBookmarks": "No bookmarks yet",
   "clearAll": "Clear All",
-  "general": "General"
+  "general": "General",
+  "movieSearch": "Movie Search",
+  "searchMoviesHint": "Search for movies...",
+  "searchForMovies": "Enter a movie name to search",
+  "anErrorOccurred": "An error occurred"
 }

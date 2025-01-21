@@ -10,7 +10,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signIn => 'Sign In';
 
   @override
-  String get signInDescription => 'Stay informed effortlessly. Sign in and explore a world of news';
+  String get signInDescription =>
+      'Stay informed effortlessly. Sign in and explore a world of news';
 
   @override
   String get signInWithGoogle => 'Sign in with Google';
@@ -34,13 +35,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get signUp => 'Sign Up';
 
   @override
-  String get signUpDescription => 'Create an account to continue, and get more personalized news';
+  String get signUpDescription =>
+      'Create an account to continue, and get more personalized news';
 
   @override
   String get forgotPasswordTitle => 'Forgot Password';
 
   @override
-  String get forgotPasswordDescription => 'Enter your email address to reset your password';
+  String get forgotPasswordDescription =>
+      'Enter your email address to reset your password';
 
   @override
   String get sendLink => 'Send Link';
@@ -52,7 +55,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseEnterPassword => 'Please enter your password';
 
   @override
-  String get aPasswordShouldBeAtLeast8Characters => 'A password should be at least 8 characters';
+  String get aPasswordShouldBeAtLeast8Characters =>
+      'A password should be at least 8 characters';
 
   @override
   String get pleaseEnterEmail => 'Please enter your email address';
@@ -164,4 +168,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get general => 'General';
+
+  @override
+  String get movieSearch => 'Movie Search';
+
+  @override
+  String get searchMoviesHint => 'Search for movies...';
+
+  @override
+  String get searchForMovies => 'Enter a movie name to search';
+
+  @override
+  String get anErrorOccurred => 'An error occurred';
 }

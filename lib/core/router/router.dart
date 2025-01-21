@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:movieapp/features/movie_search/presentation/pages/movie_search_view.dart';
+import 'package:movieapp/features/movie_search/presentation/movie_search_view.dart';
 import 'package:movieapp/features/splash/presentation/splash_view.dart';
 
 part 'router.gr.dart';
