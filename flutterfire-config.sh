@@ -12,9 +12,9 @@ case $1 in
     flutterfire config \
       --project=fenximovie \
       --out=lib/firebase_options_dev.dart \
-      --ios-bundle-id=com.fenix.movieapp.dev \
+      --ios-bundle-id=com.fenix.movieapptest.dev \
       --ios-out=ios/config/dev/GoogleService-Info.plist \
-      --android-package-name=com.fenix.movieapp.dev \
+      --android-package-name=com.fenix.movieapptest.dev \
       --android-out=android/app/src/dev/google-services.json
     ;;
   stg)
@@ -28,11 +28,11 @@ case $1 in
     ;;
   prod)
     flutterfire config \
-      --project=fenixmovie \
+      --project=fenximovie \
       --out=lib/firebase_options_prod.dart \
-      --ios-bundle-id=com.borusan.kerimcelik \
+      --ios-bundle-id=com.fenix.movieapptest \
       --ios-out=ios/config/prod/GoogleService-Info.plist \
-      --android-package-name=com.borusan.kerimcelik \
+      --android-package-name=com.fenix.movieapptest \
       --android-out=android/app/src/prod/google-services.json
     ;;
   *)

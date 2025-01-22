@@ -15,7 +15,7 @@ import 'package:movieapp/core/di/dependecy_injection_items.dart';
 import 'package:movieapp/core/environment/app_environment.dart';
 import 'package:movieapp/core/environment/dev_envied.dart';
 import 'package:movieapp/core/environment/prod_envied.dart';
-import 'package:movieapp/core/firebase/firebase_options_dev.dart';
+import 'package:movieapp/core/firebase/firebase_options_prod.dart';
 import 'package:movieapp/core/observers/custom_route_observer.dart';
 import 'package:movieapp/core/router/router.dart';
 import 'package:movieapp/core/theme/cubit/theme_cubit.dart';

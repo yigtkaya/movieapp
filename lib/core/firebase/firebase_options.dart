@@ -62,6 +62,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '654701322923',
     projectId: 'fenximovie',
     storageBucket: 'fenximovie.firebasestorage.app',
-    iosBundleId: 'com.fenix.movieapp.dev',
+    iosBundleId: 'com.fenix.movieapptest.dev',
   );
 }

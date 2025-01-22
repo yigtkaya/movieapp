@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:movieapp/core/cache/hive/hive_manager.dart';
 import 'package:movieapp/core/cache/product_cache.dart';
+import 'package:movieapp/core/handlers/messaging_handler.dart';
 import 'package:movieapp/core/network/api_client.dart';
 import 'package:movieapp/core/theme/cubit/theme_cubit.dart';
 import 'package:movieapp/features/movie_search/data/repositories/movie_repository_impl.dart';
@@ -17,11 +18,13 @@ final class DependencyInjection {
 
   /// Setup the dependency injection.
   static void setup() {
-    _getIt.registerSingleton(
-      ProductCache(
-        cacheManager: HiveManager(),
-      ),
-    );
+    _getIt
+      ..registerSingleton(
+        ProductCache(
+          cacheManager: HiveManager(),
+        ),
+      )
+      ..registerLazySingleton(() => NotificationService.instance);
 
     languageAndThemeSetup();
     networkSetup();

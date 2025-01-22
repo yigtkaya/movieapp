@@ -14,6 +14,9 @@ Future<void> setup(FutureOr<Widget> Function() builder) async {
     // singular injection at the start of the app
     await DepInItems.productCache.init();
 
+    // Initialize notification service
+    await DepInItems.notificationService.initialize();
+
     await SentryFlutter.init(
       (options) {
         options

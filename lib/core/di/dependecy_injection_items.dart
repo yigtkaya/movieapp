@@ -1,5 +1,6 @@
 import 'package:movieapp/core/cache/product_cache.dart';
 import 'package:movieapp/core/di/dependecy_injection.dart';
+import 'package:movieapp/core/handlers/messaging_handler.dart';
 import 'package:movieapp/core/network/api_client.dart';
 import 'package:movieapp/core/theme/cubit/theme_cubit.dart';
 import 'package:movieapp/features/movie_search/presentation/cubit/movie_search_cubit.dart';
@@ -11,6 +12,9 @@ final class DepInItems {
 
   /// Get the product cache.
   static ProductCache get productCache => DependencyInjection.read<ProductCache>();
+
+  /// Get the notification service.
+  static NotificationService get notificationService => DependencyInjection.read<NotificationService>();
 
   /// Get the language cubit.
   static LanguageCubit get languageCubit => DependencyInjection.read<LanguageCubit>();

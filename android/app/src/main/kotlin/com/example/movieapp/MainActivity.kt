@@ -1,4 +1,4 @@
-package com.fenix.movieapp
+package com.fenix.movieapptest
 
 import io.flutter.embedding.android.FlutterActivity
 

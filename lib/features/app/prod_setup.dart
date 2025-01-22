@@ -3,6 +3,7 @@ part of '../../main.dart';
 Future<void> setupProd(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    await firebaseConfigProd();
 
     AppEnvironment.setup(
       configuration: ProdEnv(),
@@ -13,6 +14,9 @@ Future<void> setupProd(FutureOr<Widget> Function() builder) async {
 
     // singular injection at the start of the app
     await DepInItems.productCache.init();
+
+    // Initialize notification service
+    await DepInItems.notificationService.initialize();
 
     await SentryFlutter.init(
       (options) {
@@ -45,11 +49,9 @@ Future<void> setupProd(FutureOr<Widget> Function() builder) async {
 
 // Configure the firebase services
 Future<void> firebaseConfigProd() async {
-  final environment = AppEnvironment.environment;
-
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-    name: environment,
+    name: "environment",
   );
 
   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);

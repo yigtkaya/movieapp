@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.fenix.movieapptest.dev</string>
+	<string>com.fenix.movieapptest</string>
 	<key>PROJECT_ID</key>
 	<string>fenximovie</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:654701322923:ios:489d4c5affc548b9ee4dee</string>
+	<string>1:654701322923:ios:a85f158b99d49ce9ee4dee</string>
 </dict>
 </plist>

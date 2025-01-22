@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:654701322923:android:838fe6d6a9f181a3ee4dee",
         "android_client_info": {
-          "package_name": "com.fenix.movieapptest"
+          "package_name": "com.fenix.movieapp"
         }
       },
       "oauth_client": [],
@@ -28,7 +28,26 @@
       "client_info": {
         "mobilesdk_app_id": "1:654701322923:android:df58594a0922992dee4dee",
         "android_client_info": {
-          "package_name": "com.fenix.movieapptest.dev"
+          "package_name": "com.fenix.movieapp.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYVGcdkPXlbVuPc_B3r9XK6IBiytUOOSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654701322923:android:56f9d1cab6c0da0bee4dee",
+        "android_client_info": {
+          "package_name": "com.fenix.movieapptest"
         }
       },
       "oauth_client": [],
